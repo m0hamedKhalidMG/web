@@ -2,17 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const path = require("path");
-const { LocalStorage } = require("node-localstorage");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = 3000;
 
-// Initialize local storage
-const localStorage = new LocalStorage("./scratch");
-
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cookieParser()); // Use cookie parser
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -45,48 +43,46 @@ const Comment = mongoose.model("Comment", commentSchema);
 
 // Middleware to check if user is logged in
 const isAuthenticated = (req, res, next) => {
-  const user = localStorage.getItem("user");
-  if (user) {
-    req.user = JSON.parse(user); // Parse user info
-    next();
-  } else {
-    res.redirect("/login");
+  if (req.cookies.user) {
+    req.user = JSON.parse(req.cookies.user); // Parse user info from cookie
+    return next();
   }
+  res.redirect("/login");
 };
 
 // Routes
 app.get("/", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("index", { user });
 });
 
 app.get("/about", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("about", { user });
 });
 
 app.get("/recycling", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("recycling", { user });
 });
 
 app.get("/environment", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("environment", { user });
 });
 
 app.get("/agriculture", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("agriculture", { user });
 });
 
 app.get("/pollution", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("pollution", { user });
 });
 
 app.get("/resources", (req, res) => {
-  const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
+  const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
   res.render("resources", { user });
 });
 
@@ -135,7 +131,7 @@ app.post("/login", async (req, res) => {
       return res.status(400).send("Invalid credentials.");
     }
 
-    localStorage.setItem("user", JSON.stringify(user)); // Store user session
+    res.cookie("user", JSON.stringify(user), { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // Store user in cookie (1 day)
     res.redirect("/");
   } catch (err) {
     console.error("Login error:", err);
@@ -150,7 +146,7 @@ app.get("/dashboard", isAuthenticated, (req, res) => {
 
 // Logout Route
 app.get("/logout", (req, res) => {
-  localStorage.removeItem("user"); // Clear user session
+  res.clearCookie("user"); // Clear cookie
   res.redirect("/");
 });
 
