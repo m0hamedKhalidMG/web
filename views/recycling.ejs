@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recycling</title>
+    <link rel="stylesheet" href="/css/Recycling.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %> <%-
+    include('partials/recycling-main-content') %> <%-
+    include('partials/recycling-services-content') %> <%-
+    include('partials/recycling-videos-content') %> <%-
+    include('partials/comment-form') %> <%- include('partials/footer2') %>
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-list").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

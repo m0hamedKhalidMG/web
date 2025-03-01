@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sustainable Environment</title>
+    <link rel="stylesheet" href="http://localhost:3000/css/style.css" />
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <section id="main">
+      <div class="container">
+        <div class="main-content">
+          <h1>Sustainable Environment</h1>
+          <p>
+            Join us in promoting a sustainable future by protecting the
+            environment and natural resources.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="about-us">
+      <div class="container">
+        <div class="about-content">
+          <h4>ABOUT US</h4>
+          <h1>
+            We are dedicated to promoting sustainability through eco-friendly
+            solutions and raising environmental awareness. We provide services
+            like environmental consulting, sustainable agriculture, and making a
+            positive impact on the planet. Together, we can build a greener
+            future.
+          </h1>
+        </div>
+      </div>
+    </section>
+
+    <%- include('partials/comment-form') %> <%- include('partials/footer') %>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-list").classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

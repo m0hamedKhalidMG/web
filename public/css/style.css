@@ -1,0 +1,431 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #176945;
+    color: #378567;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #4ca57d;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+}
+
+header nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.nav-list li {
+    margin: 0 20px;
+}
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #1abc9c;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background-color: #176945;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+}
+
+/* Main Section */
+#main {
+    background: url('img/environment.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 120px 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#main h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: bounceIn 1s;
+}
+
+#main p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Services Section */
+#services {
+    background-color: #fff;
+    padding: 80px 0;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+#services .section-title h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #063928;
+}
+
+#services .services {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    animation: slideInUp 1s ease-out;
+}
+
+#services .service {
+    width: 45%;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#services .service:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+#services .service img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+#services .service img:hover {
+    transform: scale(1.1);
+}
+
+#services .service h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#services .service p {
+    font-size: 1rem;
+}
+
+/* Testimonial Section */
+#testimonial {
+    background-color: #358458;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+#testimonial h1 {
+    font-size: 2rem;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* About Us Section */
+#about-us {
+    display: flex;
+    justify-content: space-between;
+    padding: 80px 0;
+    background-color: #d2e2da;
+    animation: slideInLeft 1.5s ease-out;
+}
+
+#about-us .about-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #0a3f19;
+}
+
+#about-us .about-image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Comment Form Section */
+#comment-form {
+    padding: 40px 0;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+#comment-form textarea {
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+#comment-form textarea:focus {
+    border-color: #29b98b;
+}
+
+#comment-form button {
+    background-color: #29b98b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#comment-form button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #4fa17f;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+footer .footer-links li {
+    margin: 0 15px;
+}
+
+footer .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+footer .footer-links a:hover {
+    color: #1abc9c;
+}
+
+footer .footer-logo {
+    display: block;
+    width: 120px;
+    margin: 20px auto;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #about-us {
+        flex-direction: column;
+    }
+
+    #services .services {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #services .service {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #comment-form textarea {
+        width: 90%;
+    }
+
+    footer .footer-links {
+        flex-direction: column;
+    }
+}
+#comment-form {
+    padding: 40px 0;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+#comment-form textarea {
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+#comment-form textarea:focus {
+    border-color: #29b98b;
+}
+
+#comment-form .btn {
+    background-color: #29b98b;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#comment-form .btn:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+#comment-form {
+    text-align: center;
+    padding: 50px 0;
+    color: white;
+
+}
+
+#comment-form h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Textarea Styling */
+#comment-form textarea {
+    width: 80%;
+    max-width: 600px;
+    height: 150px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;  /* Ensures it takes full width */
+    margin: 0 auto; /* Centers horizontally */
+}
+
+/* Submit Button */
+#comment-form button {
+    display: block; /* Makes it appear below the textarea */
+    margin: 15px auto 0; /* Centers button and adds spacing */
+    padding: 12px 25px;
+    color: white;
+
+    font-size: 18px;
+    background-color: #2a7a2a; /* Green button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+#comment-form button:hover {
+    background-color: #216621; /* Darker green on hover */
+}

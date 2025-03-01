@@ -1,0 +1,25 @@
+<header>
+  <nav>
+    <div class="container">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/recycling">Recycling</a></li>
+        <li><a href="/environment">Environment</a></li>
+        <li><a href="/agriculture">Agriculture</a></li>
+        <li><a href="/pollution">Pollution</a></li>
+        <li><a href="/resources">Natural Resources</a></li>
+        <% if (user) { %>
+        <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+        <li><a href="/login">Login</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+</header>
