@@ -1,8 +1,7 @@
 <section id="comment-form">
   <div class="container">
     <h2>Share Your Thoughts</h2>
-    <% if (user) { %>
-    <form action="/submit-comment" method="POST">
+    <form>
       <textarea
         name="comment"
         placeholder="Write your comment here..."
@@ -10,8 +9,5 @@
       ></textarea>
       <button type="submit">Submit</button>
     </form>
-    <% } else { %>
-    <p>You must <a href="/login">log in</a> to submit a comment.</p>
-    <% } %>
   </div>
 </section>
