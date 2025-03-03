@@ -8,11 +8,23 @@
   </head>
   <body>
     <%- include('partials/header') %>
-    <section id="about-us">
-      <div class="container">
-        <div class="about-content">
-          <h4>ABOUT US</h4>
-          <h1>
+    <section
+      id="about-us"
+      style="background-color: #f0f8ff; padding: 50px 0; text-align: center"
+    >
+      <div class="container" style="max-width: 800px; margin: auto">
+        <div class="about-content" style="padding: 20px">
+          <h4 style="color: #2c5e1a; font-size: 18px; margin-bottom: 10px">
+            ABOUT US
+          </h4>
+          <h1
+            style="
+              color: #1a3e2c;
+              font-size: 24px;
+              line-height: 1.6;
+              font-weight: normal;
+            "
+          >
             We are dedicated to promoting sustainability through eco-friendly
             solutions and raising environmental awareness. We provide services
             like environmental consulting, sustainable agriculture, and making a
@@ -22,6 +34,7 @@
         </div>
       </div>
     </section>
+
     <%- include('partials/footer') %>
     <script>
       function toggleMenu() {
