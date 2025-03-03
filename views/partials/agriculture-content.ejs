@@ -13,7 +13,30 @@
   <div class="con">
     <div class="image-container">
       <img src="/img/x.jpeg" alt="Agriculture Field" />
-      <img src="/img/AGRICULTURE2.jpeg" alt="Farmers Working in Field" />
+      <video
+        controls
+        style="
+          width: 100%;
+          max-width: 700px;
+          height: auto;
+          border-radius: 15px;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+          margin: 20px auto;
+          display: block;
+          border: 3px solid #4caf50;
+          background: #000;
+          outline: none;
+          transition: transform 0.3s ease-in-out;
+        "
+        onmouseover="this.style.transform='scale(1.05)'"
+        onmouseout="this.style.transform='scale(1)'"
+      >
+        <source
+          src="https://firebasestorage.googleapis.com/v0/b/sec-project-368ee.appspot.com/o/agriculture.mp4?alt=media&token=70270b64-fb33-4c72-a142-24b6cb186cf9"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
     </div>
 
     <h2>Benefits of Sustainable Agriculture</h2>
